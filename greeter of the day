@@ -1,0 +1,26 @@
+from tkinter import *
+import tkinter.messagebox as messagebox
+import time
+ob=Tk()
+ob.title("Greeter of the day")
+ob.geometry("500x500")
+
+def task():
+
+    c = time.ctime()
+    c = c.split()
+    if (c[3] < '12:00:00'):
+       g1 = messagebox.showinfo('Greeting Window','''Good Morning\nThe time is now '''+c[3])
+    elif (c[3] > '12:00:00' and c[3] <= '18:00:00'):
+        g2 = messagebox.showinfo('Greeting Window','''Good Afternoon\nThe time is now: '''+c[3])
+    elif (c[3] > '18:00:00' and c[3] <= '21:00:00'):
+        g3 = messagebox.showinfo('Greeting Window','''Good Evening\nThe time is now: '''+c[3])
+    else:
+        g4 = messagebox.showinfo('Greeting Window','''Good Night\nThe time is now: '''+c[3])
+
+
+
+b=Button(ob,text="GREET",padx=5,pady=10, command=task)
+b.place(x=225,y=225)
+
+ob.mainloop()
